@@ -1,0 +1,206 @@
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.dark {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: white;
+}
+
+.light {
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color: #020617;
+}
+
+header {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 280px 1fr 260px;
+  gap: 20px;
+  padding: 16px;
+}
+
+.card {
+  width: 100%;
+  min-height: 220px;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h2 {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+}
+
+
+.output-card {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .output-card {
+    grid-column: span 1;
+  }
+}
+
+
+.output-card pre {
+  background: #020617;
+  padding: 12px;
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 300px;
+}
+
+.output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.output-header button {
+  margin-left: 5px;
+  background: none;
+  border: none;
+  color: #22c55e;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.history-card {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.form-card textarea {
+  min-height: 120px;
+  max-height: 200px;
+}
+
+.history-item {
+  background: rgba(255,255,255,0.15);
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.history-item:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.language-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "form output"
+      "history history";
+  }
+
+  .form-card {
+    grid-area: form;
+  }
+
+  .output-card {
+    grid-area: output;
+  }
+
+  .history-card {
+    grid-area: history;
+  }
+}
+
+
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "form"
+      "output"
+      "history";
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .form-card textarea {
+    min-height: 80px;
+  }
+
+  .output-card pre {
+    max-height: 250px;
+    font-size: 0.8rem;
+  }
+}
+
+
+@media (max-width: 420px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  .form-card button {
+    width: 100%;
+  }
+
+  .output-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+
